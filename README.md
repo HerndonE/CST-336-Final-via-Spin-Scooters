@@ -6,6 +6,12 @@ As the final project for CST 336, we created a sample website for [Spin Scooters
 Link:    
 https://cst336-final-spin-scooters.herokuapp.com/
 
+# 🚨 Warning! 🚨
+Heroku has decided to remove it's free tier subscription at the end of November 28, 2022.
+How does this affect you? This project is hosted under Heroku's free tier service. It will remain on Heroku until the service it up. Thank you very much for taking the time into reading this message and let us know if you have any questions, comments, or concerns.
+
+Reference: Removal of Heroku Free Product Plans FAQ : https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq
+
 # Contributors
 Course: CST - 336    
 Submission Date: 5-4-2020       
