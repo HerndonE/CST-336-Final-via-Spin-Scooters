@@ -1,6 +1,6 @@
 <%- include ('templates/header'); -%>
 
-    <nav class = "nava">
+   <nav class = "nava">
         <center>
             <hr width="50%" />
             <a href = "/profile">PROFILE</a>
@@ -13,6 +13,22 @@
     	body, main, .nava, .border, .jumbotron{
     		background-color: #F65900;
     	}
+    	.container {
+		   background-color: #E39408;
+		   color: black;
+		   width: 300px;
+		   height: 180px;
+		   border: 1px black;
+		   box-sizing: border-box;
+		}
+
+		.container input {
+		    width: 100%;
+		    clear: both;
+		    border-radius: 35px;
+		    border: 2px solid gray;
+
+		}
     </style>
     <main>
         <center>
@@ -26,7 +42,85 @@
             </div>
             
         </center>
+
+        <br><br>
+        <hr>
+        <div class="bookconfirm">
+        	<img src="/img/pixabay.jpg" alt="pixabay" style="width:150px;height:150px;">
+    		We thank our <a href="https://www.pixabay.com">sponsors</a> for making this website possible!
+    		Search through the best picture website!
+    	</div>
+    	<br>
+
+        <form id="imageSearch" class="container" method="get">
+      Keyword: <input type="text" id="keyword" name="keyword">
+      <br>
+      <input type="submit" id="submit" value="Search">
+      <br><br>
+    </form>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <span id="pic1Likes"></span>
+        <br>
+        <img src="" id="first">
+      </div>
+      <div class="col-4">
+        <span id="pic2Likes"></span>
+        <br>
+        <img src="" id="second">
+      </div>
+      <div class="col-4">
+        <span id="pic3Likes"></span>
+        <br>
+        <img src="" id="third">
+      </div>
+      <div class="col-4">
+        <span id="pic4Likes"></span>
+        <br>
+        <img src="" id="fourth">
+      </div>
+    </div>
+
     </main>
     <br/>
+    <script>
+		
+	
+    $(document).ready(function() {
+        $("#imageSearch").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                    method: "GET",
+                    url: "https://pixabay.com/api/",
+                    dataType: "json",
+                    data: {
+                      "key": "13951242-f031e44171b4cc55e1cbaabed",
+                      "q": $("#keyword").val(),
+                      "orientation": "horizontal"
+                    },
+                    success: function(result, status) {
+                        let index1 = Math.floor(Math.random() * result.hits.length);
+                        let index2 = Math.floor(Math.random() * result.hits.length);
+                        let index3 = Math.floor(Math.random() * result.hits.length);
+                        let index4 = Math.floor(Math.random() * result.hits.length);
 
+                        $("#first").attr('src', result.hits[index1].previewURL);
+                        $("#second").attr('src', result.hits[index2].previewURL);
+                        $("#third").attr('src', result.hits[index3].previewURL);
+                        $("#fourth").attr('src', result.hits[index4].previewURL);
+
+                        $("#pic1Likes").html(result.hits[randIndex1].likes);
+                        $("#pic2Likes").html(result.hits[randIndex2].likes);
+                        $("#pic3Likes").html(result.hits[randIndex3].likes);
+                        $("#pic4Likes").html(result.hits[randIndex4].likes);
+                    }
+
+                });
+            });
+        });
+
+
+	</script>
+    
+    
 <%- include ('templates/footer'); -%>

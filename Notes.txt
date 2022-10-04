@@ -206,3 +206,10 @@ Changed search by weather to search by zip code.
 Added options for admin to add & edit zip code when adding/editing locations.
 
 -----------------------
+
+Notes 4.30.20 - MM
+Added Entity Relation Diagram in Documents
+Added Pixabay using ajax in bookconfirm.ejs
+Made some design updates on webpages
+
+-----------------------
